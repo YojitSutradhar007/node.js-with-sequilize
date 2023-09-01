@@ -9,8 +9,8 @@ const sequelize = new Sequelize('sequilizeDB', 'postgres', '123456', {
 
 const UserTable = sequelize.define('userDatabase', {
     id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         allowNull: false,
         primaryKey: true,
     },

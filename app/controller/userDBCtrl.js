@@ -1,9 +1,10 @@
 const userModel = require('../models/userDatabase')
 
 const addUser = async (req, res, next) => {
-    const body = req.body;
+    const body=req.body;
     try {
         const result = await userModel.create({ first_name: body.first_name, last_name: body.last_name })
+
         res.status(200).json({ message: "insertation succesfully", result: result });
     } catch (err) {
         console.log("Error Inserting user " + err.message);
