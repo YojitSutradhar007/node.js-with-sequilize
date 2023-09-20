@@ -24,6 +24,23 @@ const UserTable = sequelize.define('userDatabase', {
     }
 });
 
+console.log("Creating user database Table");
+const UserCredential = sequelize.define('userCredential', {
+    id: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        allowNull: false,
+        primaryKey: true,
+    },
+    email: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    password: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    }
+});
 sequelize.sync();
 
-module.exports=UserTable;
+module.exports={UserTable,UserCredential};

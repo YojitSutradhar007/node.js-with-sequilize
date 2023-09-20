@@ -1,11 +1,15 @@
-const userModel = require('../models/userDatabase')
 const router = require('express').Router();
 const userCtrl = require('../controller/userDBCtrl')
+const checkToken = require('../middleware/check_auth')
 
-router.post('/', userCtrl.addUser);
+
+router.post('/signUp', userCtrl.signUpUser);
 
 
-router.get('/', userCtrl.getUsers)
+router.post('/login', userCtrl.loginUser);
+
+router.get('/checkToken', checkToken.checkAuth);
+
 
 
 module.exports = router;

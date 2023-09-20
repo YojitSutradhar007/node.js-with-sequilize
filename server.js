@@ -8,10 +8,10 @@ app.use(bodyParser.json());// show that which type of data in coming from body
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'))
 
-console.log("inside")
+// Routes
+app.use('/adduser',userRoute)
 
-app.use('/',userRoute)
-
+//  Error handlling
 app.use((req, res, next) => {
     const error = new Error('not found');
     error.status = 404;
